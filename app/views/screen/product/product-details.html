@@ -1,0 +1,49 @@
+<div class="main-wrapper product-details-rel">
+    <ul class="fixed-buttons-group">
+        <li>
+            <a ui-sref="^">
+                <img src="images/back.png">
+                <span>Back</span>
+            </a>
+        </li>
+        <li>
+            <a ui-sref="usxs.screen">
+                <img src="images/home.png">
+                <span>Home</span>
+            </a>
+        </li>
+    </ul>
+    <div class="slider-main-container">
+        <div class="product-details-container">
+            <div class="brand-logo">
+                <img src="{{prodDetCtrl.brandLogo}}">
+            </div>
+            <h1 ng-if="prodDetCtrl.isPriceVisible">{{prodDetCtrl.productItem.product_price}}</h1>
+            <h2 class="discount-text" ng-if="prodDetCtrl.isPriceVisible && prodDetCtrl.productItem.discount">{{prodDetCtrl.productItem.discount}}</h2>
+            <h3>{{prodDetCtrl.productItem.product_name}}</h3>
+            <small class="ref">{{prodDetCtrl.productItem.product_sku}}</small>
+            <p>
+                <strong>DESCRIPTION</strong>
+                {{prodDetCtrl.productItem.product_short_description}}
+            </p>
+            <div class="show-hide-qr" ng-if="prodDetCtrl.isQrCodeVisible">
+                <div class="product-details-qr">
+                    <qrcode data="{{prodDetCtrl.QRCodeData}}" version="8" error-correction-level="M"
+                            class="pro-qr-image"
+                            size="135" color="#000" background="#fff"></qrcode>
+                    <p><a href="javascript:;">Save to mobile</a></p>
+                </div>
+            </div>
+        </div>
+        <jcarousel-thumbs target-carousel="connectedCarousel" ng-init="connectedCarousel=''"
+                          images="prodDetCtrl.productItem.product_images"></jcarousel-thumbs>
+    </div>
+    <div class="connected-carousels">
+        <jcarousel connected-carousel="connectedCarousel"
+                   images="prodDetCtrl.productItem.product_images"></jcarousel>
+    </div>
+    <div class="logo-top">
+        <img ng-src="{{clientLogo}}">
+    </div>
+</div>
+

@@ -1,0 +1,238 @@
+.balloon-container-0, .balloon-container-1, .balloon-container-2{
+  width: 100%;
+  height: 620px;
+  padding: 10px;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+}
+.balloon-0 {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 30px;
+  position: relative;
+}
+.balloon-0 > div {
+  width: 400px;
+  height: 400px;
+  background: rgba(175, 86, 154, 0.82);
+  border-radius: 0;
+  border-radius: 80% 80% 80% 80%;
+  margin: 0 auto;
+  position: absolute;
+  padding: 10px;
+  -webkit-transform-origin: bottom center;
+  -webkit-animation: balloon 18s ease-in-out infinite;
+  -moz-animation: balloon 18s ease-in-out infinite;
+  -o-animation: balloon 18s ease-in-out infinite;
+  animation: balloon 18s ease-in-out infinite;
+  cursor: pointer;
+  border: 6px solid #fff;
+  box-shadow: 20px 20px 20px rgba(10, 10, 10, .3);
+  font-family: 'RobotoLight';
+}
+.balloon-0 > div:before {
+  color: rgba(180, 224, 67, 0.9);
+}
+.balloon-0 > div:hover {
+  animation-play-state: paused;
+}
+.balloon-0 > div span{
+  line-height: 380px;
+  font-size: 60px;
+}
+/*=====================BALLOON - 2====================*/
+.balloon-1 {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 30px;
+  position: relative;
+}
+.balloon-1 > div {
+  width: 350px;
+  height: 350px;
+  background: rgba(80, 91, 117, 0.69);
+  border-radius: 0;
+  border-radius: 80% 80% 80% 80%;
+  margin: 0 auto;
+  position: absolute;
+  padding: 10px;
+  -webkit-transform-origin: bottom center;
+  border: 6px solid #fff;
+  -webkit-animation: balloon2 12s ease-in-out infinite;
+  -moz-animation: balloon2 12s ease-in-out infinite;
+  -o-animation: balloon2 12s ease-in-out infinite;
+  animation: balloon2 12s ease-in-out infinite;
+  cursor: pointer;
+  box-shadow: 20px 20px 20px rgba(10, 10, 10, .3);
+  font-family: 'RobotoLight';
+}
+.balloon-1 > div:before {
+  color: rgba(180, 224, 67, 0.9);
+}
+.balloon-1 > div:hover {
+  animation-play-state: paused;
+}
+.balloon-1 > div span{
+  line-height: 330px;
+  font-size: 60px;
+}
+/*==============================BALLOON-3============================*/
+.balloon-2 {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 30px;
+  position: relative;
+}
+.balloon-2 > div {
+  width: 290px;
+  height: 290px;
+  background: rgba(220, 162, 66, 0.76);
+  border-radius: 0;
+  border-radius: 80% 80% 80% 80%;
+  margin: 0 auto;
+  position: absolute;
+  padding: 10px;
+  -webkit-transform-origin: bottom center;
+  -webkit-animation: balloon3 15s ease-in-out infinite;
+  -moz-animation: balloon3 15s ease-in-out infinite;
+  -o-animation: balloon3 15s ease-in-out infinite;
+  animation: balloon3 15s ease-in-out infinite;
+  cursor: pointer;
+  border: 6px solid #fff;
+  box-shadow: 20px 20px 20px rgba(10, 10, 10, .3);
+  font-family: 'RobotoLight';
+}
+.balloon-2 > div span{
+  line-height: 270px;
+  font-size: 60px;
+}
+.balloon-2 > div {
+  
+}
+.balloon-2 > div:before {
+  color: rgba(180, 224, 67, 0.9);
+}
+.balloon-2 > div:hover {
+  animation-play-state: paused;
+}
+.balloon-0 div, .balloon-1 div, .balloon-2 div{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 60px;
+  color: white;
+}
+.balloon-0 span, .balloon-1 span, .balloon-2 span {
+  color: white;
+  width: 100%;
+  position: relative;
+}
+/* BAllOON 0*/
+/*@-webkit-keyframes balloon3 {
+  0%,100%{ -webkit-transform:translate(0, -10px) rotate(6deg);}
+  20%{ -webkit-transform:translate(-20px, 30px) rotate(-360deg); left:150px;}
+  40%{ -webkit-transform:translate(-20px, 30px) rotate(6deg); left:300px;}
+  60%{ -webkit-transform:translate(-20px, 30px) rotate(-360deg); left:150px;}
+  80%{ -webkit-transform:translate(-20px, 30px) rotate(-360deg); left:100px;}
+}
+@-moz-keyframes balloon3 {
+ 0%,100%{ -moz-transform:translate(0, -10px) rotate(6eg);}
+  20%{ -moz-transform:translate(-20px, 30px) rotate(-360deg); left:0px;}
+  40%{ -moz-transform:translate(-20px, 30px) rotate(6deg); left:200px;}
+  60%{ -moz-transform:translate(-20px, 30px) rotate(-360deg); left:50px;}
+  80%{ -moz-transform:translate(-20px, 30px) rotate(-360deg); left:50px;}
+}
+@-o-keyframes balloon3 {
+ 0%,100%{ -o-transform:translate(0, -10px) rotate(6eg);}
+  20%{ -o-transform:translate(-20px, 30px) rotate(-360deg); left:0px; }
+  40%{ -o-transform:translate(-20px, 30px) rotate(-6deg); left:200px; }
+  60%{ -o-transform:translate(-20px, 30px) rotate(-360deg); left:50px; }
+  80%{ -o-transform:translate(-20px, 30px) rotate(-360deg); left:50px; }
+}*/
+@keyframes balloon {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+    right: 0;
+    top: 0;
+  }
+  20% {
+    transform: translate(-20px, 30px) rotate(30deg);
+    right: 25%;
+    top: 150px;
+  }
+  40% {
+    transform: translate(-20px, 30px) rotate(-30deg);
+    right: 38%;
+    top: 0;
+  }
+  60% {
+    transform: translate(-20px, 30px) rotate(30deg);
+    right: 71%;
+    top: 150px;
+  }
+  80% {
+    transform: translate(-20px, 30px) rotate(-30deg);
+    right: 0;
+    top: 100px;
+  }
+}
+@keyframes balloon2 {
+  0%,
+  100% {
+    transform: translate(0, -10px) rotate(0deg);
+    left: 6.5%;
+    top: 30px;
+  }
+  20% {
+    transform: translate(5px, 30px) rotate(30deg);
+    left: 40%;
+    top: 200px;
+  }
+  40% {
+    transform: translate(5px, 30px) rotate(-30deg);
+    left: 76%;
+    top: 0;
+  }
+  60% {
+    transform: translate(5px, 30px) rotate(30deg);
+    left: 25%;
+    top: 40px;
+  }
+  80% {
+    transform: translate(5px, 30px) rotate(-30deg);
+    left: 6.5%;
+    top: 0;
+  }
+}
+
+@keyframes balloon3 {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+    right: 0;
+    top: 0;
+  }
+  20% {
+    transform: translate(10px, 30px) rotate(30deg);
+    right: 30%;
+    top: 75px;
+  }
+  40% {
+    transform: translate(10px, 30px) rotate(-30deg);
+    right: 67.7%;
+    top: 125px;
+  }
+  60% {
+    transform: translate(10px, 30px) rotate(30deg);
+    right: 40%;
+    top: -8px;
+  }
+  80% {
+    transform: translate(10px, 30px) rotate(-30deg);
+    right: 0;
+    top: 0;
+  }
+}

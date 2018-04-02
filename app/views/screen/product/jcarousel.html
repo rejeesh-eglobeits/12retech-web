@@ -1,0 +1,10 @@
+<div class="stage">
+    <div class="jcarousel carousel carousel-stage">
+        <ul>
+            <li ng-show="images" ng-repeat="img in images | filter:{ 'product_media_option' : 'detail' } "><img
+                    ng-src="{{img.product_media_path }}" alt=""></li>
+            <li ng-show="!(images | filter:{ 'product_media_option' : 'detail' }).length">
+                <img ng-src="{{'images/no-img.jpg'}}" alt=""></li>
+        </ul>
+    </div>
+</div>

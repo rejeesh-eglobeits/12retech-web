@@ -1,0 +1,31 @@
+<div class="main-wrapper" style="overflow: hidden;">
+    <video style=" height: 100%;" autoplay loop class="video-wrapper-bg">
+        <source ng-src="{{catCtrl.backgroundVideo}}" type="video/mp4">
+    </video>
+    <ul class="fixed-buttons-group">
+        <li>
+            <a ui-sref="usxs.screen.language">
+                <img src="images/back.png">
+                <span>Back</span>
+            </a>
+        </li>
+        <li>
+            <a ui-sref="usxs.screen">
+                <img src="images/home.png">
+                <span>Home</span>
+            </a>
+        </li>
+    </ul>
+    <div class="logo-top">
+        <img ng-src="{{clientLogo}}">
+    </div>
+    <a ng-repeat="item in catCtrl.categoryItems" ui-sref="{{catCtrl.getUrlState(item)}}" ng-click="catCtrl.onClick(item.category_id)">
+        <div class="balloon-container-{{ $index }}">
+            <div class="balloon-{{$index}}">
+                <div><span>{{item.category_name.toUpperCase()}}</span></div>
+            </div>
+        </div>
+    </a>
+</div>
+
+

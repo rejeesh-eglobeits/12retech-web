@@ -1,0 +1,20 @@
+{
+	"version_1" : {
+		"upgrade" : [
+			"CREATE TABLE IF NOT EXISTS `log` ( `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, `log` text DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',`is_transfer` tinyint(1) NOT NULL DEFAULT '0', PRIMARY KEY (`id`) )",
+			"CREATE TABLE IF NOT EXISTS `screen_media` ( `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, `screen_media_type` varchar(255) DEFAULT NULL, `screen_media_option` varchar(255) DEFAULT NULL, `screen_media_name` varchar(255) DEFAULT NULL, `screen_media_path` VARCHAR(255)  DEFAULT NULL, `screen_media_locale` varchar(255) DEFAULT NULL, `screen_media_url` text, `download_status` tinyint(1) NOT NULL DEFAULT '0', `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, PRIMARY KEY (`id`),INDEX `screen_media_option` (`screen_media_option`), INDEX `download_status` (`download_status`),INDEX `screen_media_type` (`screen_media_type`) );",
+			"CREATE TABLE IF NOT EXISTS product_media ( id int(11) UNSIGNED NOT NULL AUTO_INCREMENT, product_id varchar(255) DEFAULT NULL, product_media_type varchar(255) DEFAULT NULL, product_media_option varchar(255) DEFAULT NULL, product_media_name varchar(255) DEFAULT NULL, product_media_path VARCHAR(255) DEFAULT NULL, product_media_locale varchar(255) DEFAULT NULL, product_media_url TEXT DEFAULT NULL, download_status tinyint(1) NOT NULL DEFAULT '0', created_at  timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, updated_at timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, PRIMARY KEY (id), INDEX `product_id` (`product_id`), INDEX `product_media_type` (`product_media_type`), INDEX `product_media_option` (`product_media_option`), INDEX `download_status` (`download_status`) )",
+			"CREATE TABLE IF NOT EXISTS `config` ( `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, `config_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL, `config_value` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL, `config_type` ENUM('system','api') NOT NULL DEFAULT 'system', PRIMARY KEY (`id`), INDEX `config_type` (`config_type`) );",
+			"CREATE TABLE IF NOT EXISTS `language` ( `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, `language_code` varchar(255) NOT NULL, `language_label` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL, `language_name` varchar(100) NOT NULL, `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP, `updated_at` timestamp NULL DEFAULT NULL, PRIMARY KEY (`id`) );",
+			"CREATE TABLE IF NOT EXISTS `analytics` ( `id` int(11) NOT NULL AUTO_INCREMENT, `event` text NOT NULL, `time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,is_transfer tinyint(1) NOT NULL DEFAULT '0', PRIMARY KEY (`id`) );"
+		],
+		"downgrade" : [
+			"DROP TABLE IF EXISTS log",
+			"DROP TABLE IF EXISTS screen_media",
+			"DROP TABLE IF EXISTS product_media",
+			"DROP TABLE IF EXISTS config",
+			"DROP TABLE IF EXISTS language",
+			"DROP TABLE IF EXISTS analytics"
+		]
+	}
+}

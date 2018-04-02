@@ -1,0 +1,22 @@
+<div class="main-wrapper login-bg" ng-show="!loaderStatus">
+    <div class="login-form-container">
+        <h1>Sign in here</h1>
+        <form ng-submit="signin()">
+            <input type="text" id="dbname" ng-model="formData.dbname" required placeholder="Database Name">
+            <input type="text" id="dbusername" ng-model="formData.dbusername" required placeholder="Database Username">
+            <input type="password" id="dbpassword" ng-model="formData.dbpassword" required placeholder="Database Password">
+            <input type="text" id="username" ng-model="formData.username" required placeholder="Screen Username">
+            <input type="password" id="password" ng-model="formData.password" required placeholder="Screen Password">
+            <button type="submit" class="sign-in-button" ng-disabled="loginBusy">Sign In <i ng-if="loginBusy" class="glyphicon glyphicon-refresh glyphicon-spin" aria-hidden="true"></i></button>
+            <div class="alert" ng-class="errorStatus=='success'?'alert-success':'alert-danger'" role="alert"
+                 ng-if="errorMessage">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                {{errorMessage}}
+            </div>
+        </form>
+    </div>
+
+</div>
+
+

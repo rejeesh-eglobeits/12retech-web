@@ -1,0 +1,27 @@
+<div class="modal-header">
+</div>
+<div class="modal-body">
+    <popup-video product-video="productVideo"></popup-video>
+</div>
+<div class="modal-footer">
+    <div class="vide-qr-wrapper">
+        <p>LOVE THE VIDEO. KEEP IT.</p>
+        <qrcode data="{{QRCodeData}}" version="5" error-correction-level="M" size="140" color="#fff" background="#000"></qrcode>
+    </div>
+</div>
+<div class="popup-video-btns">
+    <ul class="fixed-buttons-group">
+        <li>
+            <a ui-sref="^">
+                <img src="images/back.png">
+                <span>Back</span>
+            </a>
+        </li>
+        <li>
+            <a ui-sref="usxs.screen">
+                <img src="images/home.png">
+                <span>Home</span>
+            </a>
+        </li>
+    </ul>
+</div>

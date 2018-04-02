@@ -1,0 +1,26 @@
+<div class="main-wrapper" ng-style="{'background': 'url(' + subCatCtrl.background + ') no-repeat top center'}">
+    <ul class="fixed-buttons-group">
+        <li>
+            <a ui-sref="^">
+                <img src="images/back.png">
+                <span>Back</span>
+            </a>
+        </li>
+        <li>
+            <a ui-sref="usxs.screen">
+                <img src="images/home.png">
+                <span>Home</span>
+            </a>
+        </li>
+    </ul>
+    <div class="logo-top">
+        <img ng-src="{{clientLogo}}">
+    </div>
+    <ul class="category-boxes-wrapper">
+        <li ng-repeat="item in subCatCtrl.subcategories">
+            <a ui-sref="usxs.screen.category.subcategory.products({'sub_category_id' : item.sub_category_id, 'sub_category_name' : item.sub_category_name})" ng-click="subCatCtrl.onClick(item.sub_category_id)">
+                <h2>{{item.sub_category_name.toUpperCase()}}</h2>
+            </a>
+        </li>
+    </ul>
+</div>

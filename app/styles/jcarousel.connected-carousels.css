@@ -1,0 +1,178 @@
+/** Stage container **/
+
+.connected-carousels .stage {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.connected-carousels .photo-credits {
+    position: absolute;
+    right: 15px;
+    bottom: 0;
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.85);
+    opacity: .66;
+}
+
+.connected-carousels .photo-credits a {
+    color: #fff;
+}
+
+/** Navigation container **/
+
+.slider-main-container .navigation {
+    width: 100%;
+    margin: 40px 0 0 0;
+    position: relative;
+    float: right;
+}
+
+/** Shared carousel styles **/
+
+.connected-carousels .carousel {
+    overflow: hidden;
+    position: relative;
+}
+
+.connected-carousels .carousel ul, .slider-main-container .carousel ul{
+    width: 10000em;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.connected-carousels .carousel li, .slider-main-container .carousel li {
+    float: left;
+}
+.connected-carousels .carousel li img, .slider-main-container .carousel li img{
+    width: 100%;
+    height: auto;
+}
+.connected-carousels .carousel li img{
+    max-width: 1080px;
+}
+/** Stage carousel specific styles **/
+
+.connected-carousels .carousel-stage {
+    height: auto;
+}
+
+/** Navigation carousel specific styles **/
+
+.slider-main-container .carousel-navigation {
+    height: auto;
+    width: 382px;
+    float: left;
+    overflow: hidden;
+    margin-left:  50px; 
+}
+.slider-main-container .carousel-navigation li {
+    cursor: pointer;
+    margin: 0 20px 0 0;
+    border: 3px solid #fff;
+    width: 108px;
+    height: 124px;
+    overflow: hidden;
+}
+.slider-main-container .carousel-navigation li img {
+    display: block;
+    width: 100%;
+    height: auto;    
+}
+.slider-main-container .carousel-navigation li.active {
+    border-color: #ccc;
+}
+/** Stage carousel controls **/
+.slider-main-container .prev-stage,
+.slider-main-container .next-stage {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 305px;
+    height: 410px;
+    color: #fff;
+}
+
+.slider-main-container .prev-stage {
+    left: 0;
+}
+
+.slider-main-container .next-stage {
+    right: 0;
+}
+
+.slider-main-container .prev-stage.inactive,
+.slider-main-container .next-stage.inactive {
+    display: none;
+}
+
+.slider-main-container .prev-stage span,
+.slider-main-container .next-stage span {
+    display: none;
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    background: #4E443C;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0 0 1px #000;
+    font: 24px/27px Arial, sans-serif;
+    -webkit-border-radius: 30px;
+       -moz-border-radius: 30px;
+            border-radius: 30px;
+    -webkit-box-shadow: 0 0 2px #999;
+       -moz-box-shadow: 0 0 2px #999;
+            box-shadow: 0 0 2px #999;
+}
+
+.connected-carousels .prev-stage span {
+    left: 20px;
+    display: none;
+}
+
+.connected-carousels .next-stage span {
+    right: 20px;
+    display: none;
+}
+
+.connected-carousels .prev-stage:hover span,
+.connected-carousels .next-stage:hover span {
+    display: block;
+}
+
+/** Navigation carousel controls **/
+
+.slider-main-container .prev-navigation,
+.slider-main-container .next-navigation {
+    display: block;
+    position: absolute;
+    width: 26px;
+    height: 45px;
+}
+.slider-main-container .prev-navigation img,
+.slider-main-container .next-navigation img{
+        width: 100%;
+        height: auto;
+}
+.slider-main-container .prev-navigation {
+    left: -5px;
+    top: calc(50% - 22px);
+    text-indent: 6px;
+}
+
+.slider-main-container .next-navigation {
+    right: 15px;
+    top: calc(50% - 22px);
+    text-indent: 20px;
+}
+
+.slider-main-container .prev-navigation.inactive,
+.slider-main-container .next-navigation.inactive {
+    opacity: .5;
+    cursor: default;
+}

@@ -1,0 +1,47 @@
+<div class="main-wrapper" ng-style="{'background': 'url(' + prodCtrl.background + ') no-repeat top center'}">
+    <ul class="fixed-buttons-group" ng-hide="isModalOpen">
+        <li >
+            <a  ui-sref="^" >
+                <img src="images/back.png">
+                <span>Back</span>
+            </a>
+        </li>
+        <li>
+            <a ui-sref="usxs.screen">
+                <img src="images/home.png">
+                <span>Home</span>
+            </a>
+        </li>
+    </ul>
+    <div class="product-list-head">
+        <h1>{{prodCtrl.categoryName}}</h1>
+    </div>
+    <div class="logo-top">
+        <img ng-src="{{clientLogo}}">
+    </div>
+    <ul class="product-list-container">
+        <li ng-repeat="item in prodCtrl.proudctList">
+            <a ng-if="item.product_video" ui-sref="usxs.screen.category.subcategory.products.popupVideo({'product_id':item.id})">
+                <div class="item-img-container">
+                <video width="365px" height="365px" autoplay loop>
+                    <source ng-src="{{item.product_video}}" type="video/mp4">
+                </video>
+                </div>
+                <span>{{item.product_name}}</span>
+            </a>
+            <a ng-if="item.product_image" ui-sref="usxs.screen.category.subcategory.products.details({'product_id':item.id})" ng-click="prodCtrl.onClick(item.id)">
+                <div class="item-img-container">
+                <img ng-src="{{item.product_image }}">
+                </div>
+                <span>{{item.product_name}}</span>
+            </a>
+            <a ng-if="!item.product_image && !item.product_video" ui-sref="usxs.screen.category.subcategory.products.details({'product_id':item.id})" ng-click="products.onClick(item.id)">
+                <div class="item-img-container">
+                <img ng-src="{{'images/no-img-607x607.jpg'}}">
+                </div>
+                <span>{{item.product_name}}</span>
+            </a>
+
+        </li>
+    </ul>
+</div>

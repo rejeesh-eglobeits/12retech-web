@@ -1,0 +1,35 @@
+<div class="main-wrapper">
+    <ul class="fixed-buttons-group">
+        <li>
+            <a ui-sref="usxs.screen">
+                <img src="images/home.png">
+                <span>Home</span>
+            </a>
+        </li>
+    </ul>
+    <video style=" height: 100%;" autoplay loop class="video-wrapper-bg">
+        <source ng-src="{{languageCtrl.backgroundVideo}}" type="video/mp4"/>
+    </video>
+    <div class="product-list-head">
+        <h1>SELECT<br>LANGUAGE
+        </h1>
+    </div>
+    <div class="logo-top">
+        <img ng-src="{{clientLogo}}">
+    </div>
+    <ul class="product-list-container">
+            <li ng-repeat="item in languageCtrl.screenLanguages">
+            <a href="javascript:;" ng-click="languageCtrl.setLanguage(item.language_code)">
+                <div class="item-img-container">
+                    <video ng-if="languageCtrl.screenLanguageVideo" video width="365" height="365" autoplay="" loop="" muted="">
+                        <source ng-src="{{languageCtrl.screenLanguageVideo}}" type="video/mp4"/>
+                    </video>
+
+                    <img ng-if="!languageCtrl.screenLanguageVideo" ng-src="{{'images/no-vid-607x607.jpg'}}">
+                </div>
+                <span>{{item.language_label}}</span>
+            </a>
+        </li>
+    </ul>
+</div>
+

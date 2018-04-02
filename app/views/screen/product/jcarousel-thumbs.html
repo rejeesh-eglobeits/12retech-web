@@ -1,0 +1,13 @@
+<div class="navigation">
+    <a href="#" class="prev prev-navigation"><img src="images/prev.png"></a>
+    <a href="#" class="next next-navigation"><img src="images/next.png"></a>
+    <div class="jcarousel carousel carousel-navigation">
+        <ul>
+            <li ng-show="images.length > 0" ng-repeat="img in images | filter:{ 'product_media_option' : 'detail' } "><img
+                    ng-src="{{img.product_media_path}}" alt=""></li>
+
+            <li ng-show="!(images | filter:{ 'product_media_option' : 'detail' }).length">
+                <img ng-src="{{'images/no-img.jpg'}}" alt=""></li>
+        </ul>
+    </div>
+</div>
