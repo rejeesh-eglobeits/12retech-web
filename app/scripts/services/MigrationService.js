@@ -1,6 +1,3 @@
-const file_system = require('fs');
-
-
 (function () {
     'use strict';
     angular.module('usxsApp')

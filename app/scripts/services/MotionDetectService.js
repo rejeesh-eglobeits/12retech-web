@@ -1,6 +1,3 @@
-require('./assets/js/trackingjs/tracking.js');
-require('./assets/js/trackingjs/data/face-min.js');
-
 (function () {
     'use strict';
 

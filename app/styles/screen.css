@@ -37,7 +37,6 @@
 }
 body{
 	font-family: 'RobotoRegular';
-	overflow: hidden;
 }
 body a:hover{
 	text-decoration: none;

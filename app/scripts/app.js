@@ -10,24 +10,8 @@
  */
 
 var _templateBase = './scripts';
-var fs = require('fs');
-var mysqlClient = require('mysql');
-const baseUrl = 'http://usxs.eglobeits.com/api/v1';
-const path = require('path');
-const remote = require('electron').remote;
-const app = remote.app;
-// var appPath = app.getPath('appData');
-var appPath =  app.getPath('userData');
-var dir = path.join(appPath, 'assets');
-var createdir = path.join(appPath, 'assets');
-const bcrypt = require('bcrypt-nodejs');
-const saltRounds = 10;
-const crypto = require('crypto');
-var ipc = require('electron').ipcRenderer;
 
-// Creates MySql database connection
-var HOST = 'localhost';
-var mysql;
+const baseUrl = 'http://usxs.eglobeits.com/api/v1';
 var noNetworkErrorMessage = "Sorry...Network issue. Please try again after some time";
 angular
     .module('usxsApp', [
@@ -50,9 +34,7 @@ angular
         $rootScope.callbacks = [];
         $rootScope.dbCallback = [];
         LogService.success({'event':'app','log':'turn on screen'});
-        ipc.on('log-message', function(event, triggerType, triggerData) {
-            LogService.info({'event':'app-auto-update','log':triggerData});
-        });
+
         $rootScope.online = navigator.onLine;
         $rootScope.popUp = false;
         $window.addEventListener("offline", function () {

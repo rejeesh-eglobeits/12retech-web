@@ -1,5 +1,3 @@
-var ipc = require('electron').ipcRenderer;
-
 (function () {
     'use strict';
 
@@ -13,9 +11,7 @@ var ipc = require('electron').ipcRenderer;
             'ConfigService',
             'ProductService',
             'AnalyticsService',
-            'MigrationService',
             'WebApiService',
-            'DatabaseService',
             'DeleteService',
             'LogService',
             '$injector',
@@ -27,9 +23,7 @@ var ipc = require('electron').ipcRenderer;
                       ConfigService,
                       ProductService,
                       AnalyticsService,
-                      MigrationService,
                       WebApiService,
-                      DatabaseService,
                       DeleteService,
                       LogService,
                       $injector) {
@@ -64,31 +58,17 @@ var ipc = require('electron').ipcRenderer;
                 self.initSetup = function () {
                     localStorage.initSetup = true;
 
-                    return DatabaseService.createConnection().then(function () {
-                        return MigrationService.init().then(function () {
-
-                            var dbCallback,service;
-                            while ($rootScope.dbCallback.length > 0 ){
-                                dbCallback = $rootScope.dbCallback.shift();
-                                service = $injector.get(dbCallback.service);
-                                service[dbCallback.method](dbCallback.data);
-                            }
-                            dbCallback = service = null;
-
-                            return ConfigService.init().then(function () {
-                                ConfigService.getRestartTime().then(function (res) {
-                                    ipc.send('restart',res);
-                                });
-                                if($rootScope.online === true) {
-                                    return self.initSync();
-                                } else {
-                                    localStorage.removeItem("initSetup");
-                                    return $q.resolve();
-                                }
-
-                            });
-
+                    return ConfigService.init().then(function () {
+                        ConfigService.getRestartTime().then(function (res) {
+                            ipc.send('restart',res);
                         });
+                        if($rootScope.online === true) {
+                            return self.initSync();
+                        } else {
+                            localStorage.removeItem("initSetup");
+                            return $q.resolve();
+                        }
+
                     });
 
                 };

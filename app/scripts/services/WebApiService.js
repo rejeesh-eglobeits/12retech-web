@@ -1,4 +1,3 @@
-var ipc = require('electron').ipcRenderer;
 (function () {
     'use strict';
 

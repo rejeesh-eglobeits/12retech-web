@@ -8,10 +8,8 @@
                 success: success,
                 info: info,
                 error: error,
-                create: create,
-                update: update,
+                send: send,
                 sendLog: sendLog,
-                deleteLog: deleteLog
             };
 
             /**
@@ -25,7 +23,7 @@
 
                 log = angular.extend(data, log);
 
-                return create(log);
+                return send(log);
             }
 
             /**
@@ -39,7 +37,7 @@
 
                 log = angular.extend(data, log);
 
-                return create(log);
+                return send(log);
             }
 
             /**
@@ -58,14 +56,15 @@
 
                 log = angular.extend(data, log);
 
-                return create(log);
+                return send(log);
             }
 
             /**
-             * create log
+             * send log
              * @param log
              */
-            function create(log) {
+            function send(log) {
+                return false;
                 var deferred = $q.defer();
 
                 var data = {
@@ -80,7 +79,7 @@
                 log = angular.extend(data, log);
                 var callback = {
                     'service':'LogService',
-                    'method':'create',
+                    'method':'send',
                     'data':log
                 }
 
@@ -104,33 +103,6 @@
             }
 
 
-            /**
-             * Delete Log
-             */
-            function deleteLog() {
-                var deferred = $q.defer();
-                var query = "DELETE FROM "+tableName+" WHERE is_transfer = ?";
-                mysql.query(query, [1], function (err, res) {
-                    if (err) deferred.resolve();
-                    deferred.resolve(res);
-                });
-                return deferred.promise;
-            }
-            /**
-             * Update log
-             * @param data
-             */
-            function update(data) {
-                var deferred = $q.defer();
-                angular.forEach(data, function (value, key) {
-                    var query = "UPDATE "+tableName+" SET is_transfer = ? WHERE id = ?";
-                    mysql.query(query, [1, value.id], function (err, res) {
-                        if (err) deferred.resolve();
-                        deferred.resolve(res);
-                    });
-                });
-                return deferred.promise;
-            }
 
             function getLogs(limit) {
                 var deferred = $q.defer();

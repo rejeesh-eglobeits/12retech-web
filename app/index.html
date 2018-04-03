@@ -24,11 +24,11 @@
   <div id="eg-loader" ng-show="loaderStatus"><div class="lds-ripple"><div></div><div></div></div></div>
 
   <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script>if (window.module) module = window.module;</script>
-  <script src="bower_components/angular/angular.min.js"></script>
   <!-- build:js(.) scripts/vendor.js -->
   <!-- bower:js -->
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/angular/angular.min.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
   <script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
   <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
@@ -40,11 +40,14 @@
   <!-- endbower -->
   <!-- endbuild -->
 
+
     <script src="js/jqfloat.js"></script>
     <script src="js/jquery.jcarousel.min.js"></script>
-    <script src="../node_modules/qrcode-generator/qrcode.js"></script>
-    <script src="../node_modules/qrcode-generator/qrcode_UTF8.js"></script>
-    <script src="../node_modules/angular-qrcode/angular-qrcode.js"></script>
+    <script src="assets/js/trackingjs/tracking.js"></script>
+    <script src="assets/js/trackingjs/data/face-min.js"></script>
+    <script src="assets/js/qrcode-generator/qrcode.js"></script>
+    <script src="assets/js/qrcode-generator/qrcode_UTF8.js"></script>
+    <script src="assets/js/qrcode-generator/angular-qrcode.js"></script>
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
@@ -62,7 +65,6 @@
     <script src="scripts/services/MotionDetectService.js"></script>
     <script src="scripts/services/ProductService.js"></script>
     <script src="scripts/services/DownloadServices.js"></script>
-    <script src="scripts/services/MigrationService.js"></script>
     <script src="scripts/services/CategoryService.js"></script>
     <script src="scripts/services/SubcategoryService.js"></script>
     <script src="scripts/services/LanguageService.js"></script>
@@ -72,7 +74,6 @@
     <script src="scripts/services/UserService.js"></script>
     <script src="scripts/services/DeleteService.js"></script>
     <script src="scripts/services/WebApiService.js"></script>
-    <script src="scripts/services/DatabaseService.js"></script>
     <script src="scripts/directives/appDirective.js"></script>
     <script src="scripts/directives/camDirective.js"></script>
     <script src="scripts/directives/floatDirective.js"></script>

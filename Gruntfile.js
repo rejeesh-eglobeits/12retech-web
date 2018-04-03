@@ -417,6 +417,12 @@ module.exports = function (grunt) {
           cwd: '<%= yeoman.app %>',
           src: 'views/**',
           dest: '<%= yeoman.dist %>'
+        }, {
+          expand: true,
+          dot: true,
+          cwd: '<%= yeoman.app %>',
+          src: 'images/*',
+          dest: '<%= yeoman.dist %>'
         }]
       },
       styles: {
@@ -494,7 +500,7 @@ module.exports = function (grunt) {
     'cdnify',
     'cssmin',
     'uglify',
-    'filerev',
+    /*'filerev',*/
     'usemin',
     'htmlmin'
   ]);

@@ -21,7 +21,7 @@ function createWindow() {
     win.setMenu(null);
     // load the dist folder from Angular
     win.loadURL(url.format({
-        pathname: path.join(__dirname, 'dist/index.html'),
+        pathname: path.join(__dirname, 'app/index.html'),
         protocol: 'file:',
         slashes: true
     }));

@@ -1,6 +1,3 @@
-const https = require('https');
-const request = require('request');
-
 (function () {
     'use strict';
     angular.module('usxsApp')

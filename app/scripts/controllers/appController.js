@@ -49,7 +49,6 @@ angular.module('usxs.controllers', [])
             'AuthService',
             'appService',
             'ConfigService',
-            'DatabaseService',
             'LogService',
             function ($scope,
                       $rootScope,
@@ -58,22 +57,11 @@ angular.module('usxs.controllers', [])
                       AuthService,
                       appService,
                       ConfigService,
-                      DatabaseService,
                       LogService) {
                 $scope.formData = {
                     'username': '',
                     'password': '',
-                    'dbusername': '',
-                    'dbpassword': '',
-                    'dbname': ''
                 }
-                DatabaseService.getCredentials().then(function (result) {
-                    if (result) {
-                        $scope.formData.dbusername = result.user;
-                        $scope.formData.dbpassword = result.password;
-                        $scope.formData.dbname = result.database;
-                    }
-                });
                 if (mysql !== undefined) {
                     ConfigService.getLoginCredentials().then(function (res) {
                         if (res.password && res.username) {
@@ -102,68 +90,52 @@ angular.module('usxs.controllers', [])
                                 password: $scope.formData.dbpassword,
                                 database: localStorage.dbname
                             }
-                            DatabaseService.createConnection(dbConfig).then(function () {
-                                LogService.success({'event': 'setup', 'log': 'database connection: success'});
-                                DatabaseService.saveCredentials(dbConfig).then(function () {
-                                    LogService.success({'event': 'setup', 'log': 'db credentials saved'});
-                                    LogService.success({'event': 'setup', 'log': 'initial setup started'});
-                                    return appService.initSetup().then(function () {
-                                        LogService.success({'event': 'setup', 'log': 'initial setup completed'});
-                                        var config = {
-                                            'config_key': 'username',
-                                            'config_value': $scope.formData.username
-                                        };
+
+                            LogService.success({'event': 'setup', 'log': 'initial setup started'});
+                            return appService.initSetup().then(function () {
+                                LogService.success({'event': 'setup', 'log': 'initial setup completed'});
+                                var config = {
+                                    'config_key': 'username',
+                                    'config_value': $scope.formData.username
+                                };
+                                ConfigService.save(config);
+                                var config = {
+                                    'config_key': 'password',
+                                    'config_value': $scope.formData.password
+                                };
+                                ConfigService.save(config);
+
+                                angular.forEach(res.data, function (value, key) {
+                                    if (key !== 'message') {
+                                        if (key === '_token') {
+                                            var config = {
+                                                'config_key': 'token',
+                                                'config_value': value
+                                            };
+                                        } else {
+                                            var config = {
+                                                'config_key': key,
+                                                'config_value': value
+                                            };
+                                        }
                                         ConfigService.save(config);
-                                        var config = {
-                                            'config_key': 'password',
-                                            'config_value': $scope.formData.password
-                                        };
-                                        ConfigService.save(config);
+                                    }
 
-                                        angular.forEach(res.data, function (value, key) {
-                                            if (key !== 'message') {
-                                                if (key === '_token') {
-                                                    var config = {
-                                                        'config_key': 'token',
-                                                        'config_value': value
-                                                    };
-                                                } else {
-                                                    var config = {
-                                                        'config_key': key,
-                                                        'config_value': value
-                                                    };
-                                                }
-                                                ConfigService.save(config);
-                                            }
-
-                                        });
-
-
-                                        $scope.loginBusy = false;
-                                        appService.start();
-                                        $state.go('usxs.' + localStorage.device_type);
-                                    }, function (err) {
-                                        LogService.error({'event': 'setup', 'log': err});
-                                        $scope.loginBusy = $rootScope.loaderStatus = false;
-                                        $scope.errorStatus = 'error';
-                                        $scope.errorMessage = "Network issue please try again later.";
-                                        console.log('initSetup failed')
-                                        console.log(err)
-                                        // localStorage.removeItem('token');
-                                        // $state.go('login');
-                                    });
-                                }, function (err) {
-                                    LogService.error({'event': 'setup', 'log': err});
                                 });
 
 
-                            }, function (err) {
-                                console.log(err)
-                                LogService.error({'event': 'setup', 'log': err});
                                 $scope.loginBusy = false;
-                                $rootScope.loaderStatus = false;
+                                appService.start();
+                                $state.go('usxs.' + localStorage.device_type);
+                            }, function (err) {
+                                LogService.error({'event': 'setup', 'log': err});
+                                $scope.loginBusy = $rootScope.loaderStatus = false;
                                 $scope.errorStatus = 'error';
-                                $scope.errorMessage = err;
+                                $scope.errorMessage = "Network issue please try again later.";
+                                console.log('initSetup failed')
+                                console.log(err)
+                                // localStorage.removeItem('token');
+                                // $state.go('login');
                             });
 
 
